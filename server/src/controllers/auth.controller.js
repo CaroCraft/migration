@@ -20,6 +20,7 @@ async function login(req, res) {
 
     res.json({ id: user.id, name: user.name, email: user.email, role: user.role })
   } catch (err) {
+    console.log(err)
     res.status(500).json({ error: 'Error interno del servidor' })
   }
 }

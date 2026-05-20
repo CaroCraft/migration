@@ -1,4 +1,7 @@
+const { z } = require('zod')
 const pool = require('../config/db')
+
+
 
 async function getAll(req, res) {
   try {
@@ -21,6 +24,7 @@ async function getById(req, res) {
 
 async function create(req, res) {
   const { name, description } = req.body
+  
   if (!name) return res.status(400).json({ error: 'El nombre es requerido' })
 
   try {
@@ -33,6 +37,8 @@ async function create(req, res) {
     res.status(500).json({ error: 'Error interno del servidor' })
   }
 }
+
+
 
 async function update(req, res) {
   const { name, description } = req.body
